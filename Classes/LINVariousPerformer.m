@@ -81,6 +81,7 @@ static id sharedInstance = nil;
 	}
 	
 	[self updateCountsInTabViewItemLabels];
+  
 	[[[LINPlistsController sharedInstance] arrayController] rearrangeObjects];
 }
 
@@ -292,8 +293,14 @@ static id sharedInstance = nil;
 		[tableColumn bind:@"value" toObject:[[LINPlistsController sharedInstance] arrayController] withKeyPath:@"arrangedObjects.ProgramArguments" options:[NSDictionary dictionaryWithObject:@"ProgramArgumentsTransformer" forKey:@"NSValueTransformerName"]];
 		
 	} else if ([title isEqual:@"StartCalendarInterval"]) {
-		[tableColumn bind:@"value" toObject:[[LINPlistsController sharedInstance] arrayController] withKeyPath:@"arrangedObjects.StartCalendarInterval" options:[NSDictionary dictionaryWithObject:@"CalendarTransformer" forKey:@"NSValueTransformerName"]];
-		
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"StartCalendarInterval" ascending:NO selector:@selector(calSort:)];
+    [tableColumn setSortDescriptorPrototype:sortDescriptor];
+    [sortDescriptor release];
+    
+		[tableColumn bind:@"value"
+             toObject:[[LINPlistsController sharedInstance] arrayController]
+          withKeyPath:@"arrangedObjects.StartCalendarInterval"
+              options:[NSDictionary dictionaryWithObject:@"CalendarTransformer" forKey:@"NSValueTransformerName"]];
 	} else if ([title isEqual:@"SoftResourceLimits"]) {
 		[tableColumn bind:@"value" toObject:[[LINPlistsController sharedInstance] arrayController] withKeyPath:@"arrangedObjects.SoftResourceLimits" options:[NSDictionary dictionaryWithObject:@"ResourceLimitsTransformer" forKey:@"NSValueTransformerName"]];
 		

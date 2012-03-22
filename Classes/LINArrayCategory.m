@@ -23,7 +23,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 - (NSComparisonResult)compare:(NSArray *)array
 {
-	return [[self description] compare:[array description]];
+  return [[self description] compare:[array description]];
 }
 
 @end

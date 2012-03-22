@@ -34,34 +34,55 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 -(id)transformedValue:(id)value
 {
-	NSMutableString *returnString = [NSMutableString stringWithString:@""];
-	if ([value valueForKey:@"Minute"]) {
-		[returnString appendFormat:@"M:%@", [[value valueForKey:@"Minute"] stringValue]];
-	}
-	if ([value valueForKey:@"Hour"]) {
-		if ([returnString length] > 0) {
-			[returnString appendString:@" "];
-		}
-		[returnString appendFormat:@"H:%@", [[value valueForKey:@"Hour"] stringValue]];
+  NSMutableString *returnString = [NSMutableString stringWithString:@""];
+  if ([value valueForKey:@"Month"]) {
+		[returnString appendFormat:@"Month:%02d", [[value valueForKey:@"Month"] intValue]];
 	}
 	if ([value valueForKey:@"Day"]) {
 		if ([returnString length] > 0) {
 			[returnString appendString:@" "];
 		}
-		[returnString appendFormat:@"D:%@", [[value valueForKey:@"Day"] stringValue]];
+		[returnString appendFormat:@"D:%02d", [[value valueForKey:@"Day"] intValue]];
 	}
-	if ([value valueForKey:@"Weekday"]) {
+  if ([value valueForKey:@"Weekday"]) {
 		if ([returnString length] > 0) {
 			[returnString appendString:@" "];
 		}
-		[returnString appendFormat:@"W:%@", [[value valueForKey:@"Weekday"] stringValue]];
+		[returnString appendFormat:@"W:%02d", [[value valueForKey:@"Weekday"] intValue]];
 	}
-	if ([value valueForKey:@"Month"]) {
+	if ([value valueForKey:@"Hour"]) {
 		if ([returnString length] > 0) {
 			[returnString appendString:@" "];
 		}
-		[returnString appendFormat:@"Month:%@", [[value valueForKey:@"Month"] stringValue]];
+		[returnString appendFormat:@"H:%02d", [[value valueForKey:@"Hour"] intValue]];
 	}
+	if ([value valueForKey:@"Minute"]) {
+		if ([returnString length] > 0) {
+			[returnString appendString:@" "];
+		}
+    [returnString appendFormat:@"M:%02d", [[value valueForKey:@"Minute"] intValue]];
+	}
+	
+	return returnString;
+}
+
++ (NSString *)sortableStringFromCalendarDictionary:(NSDictionary *)dictionary {
+  NSArray *sortableKeys = [NSArray arrayWithObjects:
+                           @"Month",
+                           @"Day",
+                           @"Weekday",
+                           @"Hour",
+                           @"Minute",
+                           nil];
+
+  NSMutableString *returnString = [NSMutableString stringWithString:@""];
+  for(NSString *key in sortableKeys) {
+    if([dictionary valueForKey:key]) {
+      [returnString appendFormat:@"%02d", [[dictionary valueForKey:key] intValue]];
+    } else {
+      [returnString appendString:@"00"];
+    }
+  }
 	
 	return returnString;
 }

@@ -74,19 +74,6 @@ static id sharedInstance = nil;
 				[alert runModal];
 				
 				[NSApp terminate:nil];
-			} else if (systemVersion >= 0x1050) {
-				[NSApp activateIgnoringOtherApps:YES];
-				NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-				[alert setMessageText:NSLocalizedString(@"This version of Lingon does not function properly on Mac OS X 10.5 Leopard. Please download a later version from the web site.", @"This version of Lingon does not function properly on Mac OS X 10.5 Leopard. Please download a later version from the web site.")];
-				[alert setInformativeText:@""];
-				[alert addButtonWithTitle:OKBUTTON];
-				[alert addButtonWithTitle:NSLocalizedString(@"Go To Web Site", @"Go To Web Site")];
-				int answer = [alert runModal];
-				if (answer == NSAlertSecondButtonReturn) {
-					[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://lingon.sourceforge.net/"]];
-				}
-				
-				[NSApp terminate:nil];
 			}
 		}
 		
@@ -152,7 +139,8 @@ static id sharedInstance = nil;
     [mainWindow setToolbar:toolbar];
 	
 	if ([defaults valueForKey:@"TableColumns"]) {
-		NSEnumerator *enumerator = [[mainTableView tableColumns] objectEnumerator];
+    NSArray *tableColumns = [[mainTableView tableColumns] copy];
+		NSEnumerator *enumerator = [tableColumns objectEnumerator];
 		id item;
 		while (item = [enumerator nextObject]) {
 			[mainTableView removeTableColumn:item];
@@ -641,7 +629,6 @@ static id sharedInstance = nil;
 
     return NO;
 }
-
 
 -(void)moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet *)indexSet toIndex:(unsigned int)insertIndex arrayController:(NSArrayController *)arrayController
 {
