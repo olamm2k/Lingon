@@ -1,0 +1,209 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {"" = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                editAction = id; 
+                loadAction = id; 
+                moveToAction = id; 
+                reloadAction = id; 
+                startAction = id; 
+                stopAction = id; 
+                unloadAction = id; 
+            }; 
+            CLASS = LINActionMenuController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {sendFeedbackAction = id; }; 
+            CLASS = LINApplicationMenuController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                cancelAction = id; 
+                launchOnlyWhenILogInAction = id; 
+                nextCreateAction = id; 
+                pathAction = id; 
+                previousAction = id; 
+            }; 
+            CLASS = LINAssistant; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                assistantSheet = NSWindow; 
+                assistantTabView = NSTabView; 
+                assitantMatrix = NSMatrix; 
+                choice1JobTextField = NSTextField; 
+                choice2EveryPopUp = NSPopUpButton; 
+                choice2JobTextField = NSTextField; 
+                choice2RunEveryTextField = NSTextField; 
+                choice3DayPopUp = NSPopUpButton; 
+                choice3HourPopUp = NSPopUpButton; 
+                choice3JobTextField = NSTextField; 
+                choice3MinutePopUp = NSPopUpButton; 
+                choice3MonthPopUp = NSPopUpButton; 
+                choice3WeekdayPopUp = NSPopUpButton; 
+                choice4ApplicationScriptTextField = NSTextField; 
+                choice5ApplicationScriptTextField = NSTextField; 
+                choice5FileTextField = NSTextField; 
+                choice6ApplicationScriptTextField = NSTextField; 
+                choice6FolderTextField = NSTextField; 
+                labelTextField = NSTextField; 
+                launchOnlyWhenILogIn = NSButton; 
+                mustRunAsRoot = NSButton; 
+                nextCreate = NSButton; 
+                previous = NSButton; 
+                stepTextField = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {performRedo = id; performUndo = id; }; 
+            CLASS = LINEditMenuController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                cancelAction = id; 
+                insertAction = id; 
+                justSaveAction = id; 
+                saveAndLoadReloadAction = id; 
+                setPathAction = id; 
+                validateAction = id; 
+            }; 
+            CLASS = LINEditPlistController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                bonjourArrayController = NSArrayController; 
+                bonjourTableView = NSTableView; 
+                editPlistSheet = NSWindow; 
+                editTabView = NSTabView; 
+                environmentVariablesArrayController = NSArrayController; 
+                environmentVariablesTableView = NSTableView; 
+                expertTextView = NSTextView; 
+                programArgumentsArrayController = NSArrayController; 
+                programArgumentsTableView = NSTableView; 
+                queueDirectoriesArrayController = NSArrayController; 
+                queueDirectoriesTableView = NSTableView; 
+                rootDirectoryTextField = NSTextField; 
+                saveAndLoadReload = NSButton; 
+                socketsArrayController = NSArrayController; 
+                socketsTableView = NSTableView; 
+                standardErrorPathTextField = NSTextField; 
+                standardOutPathTextField = NSTextField; 
+                watchPathsArrayController = NSArrayController; 
+                watchPathsTableView = NSTableView; 
+                workingDirectoryTextField = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                assistantAction = id; 
+                changeFilenameAction = id; 
+                changeFilenameCancelAction = id; 
+                createImportAction = id; 
+                deleteAction = id; 
+                exportAction = id; 
+                importAction = id; 
+                newAction = id; 
+                openInExternalEditorAction = id; 
+                performChangeFilenameAction = id; 
+                whichFolderCancelAction = id; 
+            }; 
+            CLASS = LINFileMenuController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                changeFilenameFolderTextField = NSTextField; 
+                changeFilenameNewNameTextField = NSTextField; 
+                changeFilenameOldNameTextField = NSTextField; 
+                changeFilenameSheet = NSWindow; 
+                createImport = NSButton; 
+                whichFolderMatrix = NSMatrix; 
+                whichFolderSheet = NSWindow; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = LINGreyBackgroundView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {openManPageAction = id; }; 
+            CLASS = LINHelpMenuController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                manPageLaunchCtlTextView = NSTextView; 
+                manPageLaunchCtlWindow = NSWindow; 
+                manPageLaunchdPlistTextView = NSTextView; 
+                manPageLaunchdPlistWindow = NSWindow; 
+                manPageLaunchdTextView = NSTextView; 
+                manPageLaunchdWindow = NSWindow; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = LINMainController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                assistantSheet = NSWindow; 
+                mainTabView = NSTabView; 
+                mainTableView = NSTableView; 
+                mainWindow = NSWindow; 
+                plistSheet = NSWindow; 
+                whichFolderSheet = NSWindow; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = LINPlistsController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {arrayController = NSArrayController; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                changeTableFontSizeAction = id; 
+                checkNowAction = id; 
+                externalEditorPathAction = id; 
+                showFontPanelAction = id; 
+            }; 
+            CLASS = LINPreferences; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {noUpdateAvailableTextField = NSTextField; preferencesWindow = NSWindow; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = LINSecureToolCommunication; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {authorisationView = SFAuthorizationView; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = LINSyntaxColouring; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = LINTableView; LANGUAGE = ObjC; SUPERCLASS = NSTableView; }, 
+        {CLASS = LINVariousPerformer; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                agentsDaemonsTabAction = id; 
+                columnAction = id; 
+                editTabAction = id; 
+                folderInFinderAction = id; 
+                refreshAction = id; 
+                selectNextTabAction = id; 
+                selectPreviousTabAction = id; 
+            }; 
+            CLASS = LINViewMenuController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {columnsMenu = NSMenu; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {CLASS = SFAuthorizationView; LANGUAGE = ObjC; SUPERCLASS = NSView; }
+    ); 
+    IBVersion = 1; 
+}
